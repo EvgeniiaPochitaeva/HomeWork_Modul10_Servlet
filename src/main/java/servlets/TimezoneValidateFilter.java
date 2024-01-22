@@ -29,7 +29,6 @@ public class TimezoneValidateFilter extends HttpFilter {
 
         chain.doFilter(req, res);
     }
-
     private boolean isValidTimezone(String timezone) {
         try {
             ZoneId.of(timezone);

@@ -18,7 +18,6 @@ public class TimeServlet extends HttpServlet {
         resp.getWriter().write(parseTime(req));
         resp.getWriter().close();
     }
-
     private String parseTime(HttpServletRequest request) {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
