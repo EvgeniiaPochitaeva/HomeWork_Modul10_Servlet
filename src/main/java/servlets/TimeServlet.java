@@ -26,7 +26,7 @@ public class TimeServlet extends HttpServlet {
             String utc = request.getParameter("timezone").replace(" ", "+");
             zonedDateTime = ZonedDateTime.now(ZoneId.of(utc));
         } else {
-            zonedDateTime = ZonedDateTime.now(ZoneId.of("UTC"));
+            zonedDateTime = ZonedDateTime.now();
         }
 
         return dateTimeFormatter.format(zonedDateTime) + " " + String.format("UTC%+d", zonedDateTime.getOffset().get(ChronoField.OFFSET_SECONDS) / 3600);
