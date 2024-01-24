@@ -29,6 +29,18 @@ public class TimeServlet extends HttpServlet {
             zonedDateTime = ZonedDateTime.now();
         }
 
-        return dateTimeFormatter.format(zonedDateTime) + " " + String.format("UTC%+d", zonedDateTime.getOffset().get(ChronoField.OFFSET_SECONDS) / 3600);
+        return "<!doctype html>\n" +
+                "<html lang=\"en\">\n" +
+                "<head>\n" +
+                "    <meta charset=\"UTF-8\">\n" +
+                "    <meta name=\"viewport\"\n" +
+                "          content=\"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0\">\n" +
+                "    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\n" +
+                "    <title>Document</title>\n" +
+                "</head>\n" +
+                "<body>\n" +
+                dateTimeFormatter.format(zonedDateTime) + " " + String.format("UTC%+d", zonedDateTime.getOffset().get(ChronoField.OFFSET_SECONDS) / 3600) +
+                "</body>\n" +
+                "</html>";
     }
 }
